@@ -8,9 +8,25 @@
 
 import UIKit
 import Firebase
-import FirebaseAuthUI
+//import FirebaseAuthUI
 
 class LoginController: UIViewController {
+    
+    // Segmented Controls
+    let loginRegisterSegmentedControl: UISegmentedControl = {
+        let sc = UISegmentedControl(items: ["Login", "Register"])
+        sc.tintColor = UIColor.white
+        sc.selectedSegmentIndex = 0
+        sc.addTarget(self, action: #selector(handleLoginRegisterChange), for: .valueChanged)
+        sc.translatesAutoresizingMaskIntoConstraints = false
+        return sc
+    }()
+    
+    @objc func handleLoginRegisterChange() {
+        let title = loginRegisterSegmentedControl.titleForSegment(at: loginRegisterSegmentedControl.selectedSegmentIndex)
+        print(title!)
+        registerButton.setTitle(title, for: .normal)
+    }
     
     // Fields Container
     let inputsView: UIView = {
@@ -56,11 +72,19 @@ class LoginController: UIViewController {
         button.layer.cornerRadius = 10
         button.setTitleColor(UIColor.white, for: .normal)
         
-        button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    @objc func handleLoginRegister() {
+        if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
+            handleLogin()
+        } else {
+            handleRegister()
+        }
+    }
     
     @objc func handleRegister() {
         guard let email = mailTextField.text, let password = passwordTextField.text else {
@@ -72,11 +96,38 @@ class LoginController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { (user: User?, error) in
             if error != nil {
                 print(error ?? "Error in handleRegister/createUser")
+                self.showAlert(message: error!.localizedDescription.description)
                 return
             }
-            
-            print("New User registered")
+            else {
+                self.dismiss(animated: true, completion: nil)
+                print("New User registered")
+            }
         }
+    }
+    
+    @objc func handleLogin() {
+        guard let email = mailTextField.text, let password = passwordTextField.text else {
+            print("Not valid data")
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+            if error != nil {
+                self.showAlert(message: error!.localizedDescription.description)
+                return
+            }
+            else {
+                self.dismiss(animated: true, completion: nil)
+                print("User logged in")
+            }
+        })
+    }
+    
+    @objc func showAlert(message: String) {
+        let alert = UIAlertController.init(title: "Error at Login / Register", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default))
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -87,13 +138,22 @@ class LoginController: UIViewController {
         
         view.addSubview(inputsView)
         view.addSubview(registerButton)
+        view.addSubview(loginRegisterSegmentedControl)
 
         setUpInputsView()
         setUpRegisterButton()
+        setUpLoginRegisterSegmentedControl()
     }
     
     // Status bar to white
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
+    func setUpLoginRegisterSegmentedControl() {
+        loginRegisterSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginRegisterSegmentedControl.bottomAnchor.constraint(equalTo: inputsView.topAnchor, constant: -12).isActive = true
+        loginRegisterSegmentedControl.widthAnchor.constraint(equalTo: inputsView.widthAnchor).isActive = true
+        loginRegisterSegmentedControl.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    }
 
     // Set up Fields Container View and its Subviews
     func setUpInputsView() {
