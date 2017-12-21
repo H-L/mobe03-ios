@@ -9,10 +9,10 @@
 import UIKit
 
 class Subscription: NSObject {
-    var contractNumber: String?
+    var name: String?
     var date: String?
     var dateEnd: String?
-    var name: String?
     var price: String?
     var subDescription: String?
+    var contractNumber: String?
 }
