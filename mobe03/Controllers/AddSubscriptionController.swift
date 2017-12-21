@@ -32,6 +32,7 @@ class AddSubscriptionController: UIViewController {
         view.backgroundColor = UIColor.white
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
+        navigationItem.title = "Add Subscription"
     }
     
     @objc func handleCancel() {

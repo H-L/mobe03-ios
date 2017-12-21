@@ -74,6 +74,7 @@ class HomeController: UITableViewController {
             sub.name = postDict["name"] as? String
             sub.price = postDict["price"] as? String
             sub.subDescription = postDict["subDescription"] as? String
+            sub.uid = snapshot.key
             
             self.subs.append(sub)
             
@@ -110,6 +111,14 @@ class HomeController: UITableViewController {
         let sub = subs[indexPath.row]
         cell.textLabel?.text = sub.name
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("A row \(indexPath) has been selected")
+        let sub = subs[indexPath.row]
+        let singleSubController = SingleSubController()
+        singleSubController.sub = sub
+        self.navigationController?.pushViewController(singleSubController, animated: true)
     }
 
 }

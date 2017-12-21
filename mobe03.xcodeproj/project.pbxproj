@@ -20,6 +20,7 @@
 		D5BFC1231FEA78CE0071C9D2 /* AddSubscriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFC1221FEA78CE0071C9D2 /* AddSubscriptionController.swift */; };
 		D5BFC1261FEA95EE0071C9D2 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFC1251FEA95EE0071C9D2 /* Subscription.swift */; };
 		D5BFC1281FEABE3F0071C9D2 /* FirebaseDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFC1271FEABE3F0071C9D2 /* FirebaseDataObject.swift */; };
+		D5EACC3F1FEB35BA00E45C09 /* SingleSubController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EACC3E1FEB35BA00E45C09 /* SingleSubController.swift */; };
 		D5EDB01E1FEAE0A100B9F567 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDB01D1FEAE0A100B9F567 /* TabBarController.swift */; };
 		F9AB00F7FEBF3D58736C6EA9 /* Pods_mobe03Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 467520EA63207C0DB90E87ED /* Pods_mobe03Tests.framework */; };
 		FE5B6C163480ECE785BF9C1F /* Pods_mobe03.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5795B7CA3AD19319A60EFD36 /* Pods_mobe03.framework */; };
@@ -70,6 +71,7 @@
 		D5BFC1221FEA78CE0071C9D2 /* AddSubscriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscriptionController.swift; sourceTree = "<group>"; };
 		D5BFC1251FEA95EE0071C9D2 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		D5BFC1271FEABE3F0071C9D2 /* FirebaseDataObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataObject.swift; sourceTree = "<group>"; };
+		D5EACC3E1FEB35BA00E45C09 /* SingleSubController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSubController.swift; sourceTree = "<group>"; };
 		D5EDB01D1FEAE0A100B9F567 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +188,7 @@
 				D57A2A741FE91B6E008B1712 /* HomeController.swift */,
 				D5EDB01D1FEAE0A100B9F567 /* TabBarController.swift */,
 				D5BFC1221FEA78CE0071C9D2 /* AddSubscriptionController.swift */,
+				D5EACC3E1FEB35BA00E45C09 /* SingleSubController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				D5BFC1281FEABE3F0071C9D2 /* FirebaseDataObject.swift in Sources */,
 				D57A2A751FE91B6E008B1712 /* HomeController.swift in Sources */,
 				D57A2AA21FE91E0C008B1712 /* LoginController.swift in Sources */,
+				D5EACC3F1FEB35BA00E45C09 /* SingleSubController.swift in Sources */,
 				D5EDB01E1FEAE0A100B9F567 /* TabBarController.swift in Sources */,
 				D57A2A731FE91B6E008B1712 /* AppDelegate.swift in Sources */,
 				D5BFC1261FEA95EE0071C9D2 /* Subscription.swift in Sources */,

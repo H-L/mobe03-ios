@@ -15,4 +15,5 @@ class Subscription: NSObject {
     var price: String?
     var subDescription: String?
     var contractNumber: String?
+    var uid: String?
 }
