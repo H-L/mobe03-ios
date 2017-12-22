@@ -92,7 +92,9 @@ class AddSubscriptionController: UIViewController {
     let addButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Add Subscription", for: .normal)
-        button.backgroundColor = UIColor.blue
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor(r: 120, g: 159, b: 227)
+        button.layer.cornerRadius = 10
         
         button.addTarget(self, action: #selector(handleAddSubscription), for: .touchUpInside)
         
@@ -169,7 +171,7 @@ class AddSubscriptionController: UIViewController {
         return tf
     }()
     
-    @objc func setUpTextFields() {
+    func setUpTextFields() {
         autoManualField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         autoManualField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         autoManualField.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
@@ -211,9 +213,9 @@ class AddSubscriptionController: UIViewController {
         contractNumberField.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        addButton.topAnchor.constraint(equalTo: contractNumberField.bottomAnchor).isActive = true
-        addButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
-        addButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24).isActive = true
+        addButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -100).isActive = true
+        addButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 
 }
