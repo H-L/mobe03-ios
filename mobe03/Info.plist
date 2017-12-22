@@ -39,5 +39,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>Font 1</key>
+	<string>Roboto-Bold.ttf</string>
+	<key>Font 2</key>
+	<string>Robot-Regular.ttf</string>
 </dict>
 </plist>

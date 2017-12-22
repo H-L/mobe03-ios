@@ -66,7 +66,7 @@ class LoginController: UIViewController {
     // Register Button
     let registerButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Register", for: .normal)
+        button.setTitle("Login", for: .normal)
         button.backgroundColor = UIColor(r: 50, g: 100, b: 70)
         button.layer.cornerRadius = 10
         button.setTitleColor(UIColor.white, for: .normal)
@@ -189,11 +189,5 @@ class LoginController: UIViewController {
         registerButton.topAnchor.constraint(equalTo: inputsView.bottomAnchor, constant: 12).isActive = true
         registerButton.widthAnchor.constraint(equalTo: inputsView.widthAnchor).isActive = true
         registerButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    }
-}
-
-extension UIColor {
-    convenience init(r: CGFloat, g: CGFloat, b: CGFloat){
-        self.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }
 }

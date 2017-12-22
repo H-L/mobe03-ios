@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class HomeController: UITableViewController {
+class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     // Global View vars
     var dbref: DatabaseReference!
@@ -29,7 +29,16 @@ class HomeController: UITableViewController {
         navigationItem.title = "Home"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(handleAddSub))
         
+        // CollectionView Setup
+        collectionView?.register(SubscriptionCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView?.backgroundColor = UIColor.white
+        
         // Functions launched when view is Loaded
+        checkIfUserIsLoggedIn()
+        setUpMenuBar()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         checkIfUserIsLoggedIn()
     }
     
@@ -76,10 +85,16 @@ class HomeController: UITableViewController {
             sub.subDescription = postDict["subDescription"] as? String
             sub.uid = snapshot.key
             
-            self.subs.append(sub)
+            print(self.subs)
+            
+            if self.subs.contains(sub) {
+                return
+            } else {
+                self.subs.append(sub)
+            }
             
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.collectionView?.reloadData()
             }
             
         }, withCancel: nil)
@@ -87,6 +102,10 @@ class HomeController: UITableViewController {
     
     // Pretty obvious title, duh
     func checkIfUserIsLoggedIn() {
+        if subs.count != 0 {
+            subs = [Subscription]()
+        }
+        
         if Auth.auth().currentUser?.uid == nil{
             perform(#selector(handleLogOut), with: nil, afterDelay: 0)
             print("User needs to log in")
@@ -97,28 +116,69 @@ class HomeController: UITableViewController {
         }
     }
     
+    let menuBar: MenuBar = {
+        let mb = MenuBar()
+        return mb
+    }()
+    
+    private func setUpMenuBar() {
+        view.addSubview(menuBar)
+        view.addConstraintsWithFormat(format: "H:|[view0]|", views: menuBar)
+        view.addConstraintsWithFormat(format: "V:|[view0(50)]", views: menuBar)
+    }
+    
     /*
-    / ===== TABLE VIEW FUNCTIONS ====
+    / ===== COLLECTION VIEW FUNCTIONS ====
     */
     
-    // TableView props
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    // Manage number of Cells in Collection
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return subs.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        let sub = subs[indexPath.row]
-        cell.textLabel?.text = sub.name
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return subs.count
+//    }
+    
+    // Add cells to Collection
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! SubscriptionCell
+        cell.sub = subs[indexPath.row]
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
+//        let sub = subs[indexPath.row]
+//        cell.textLabel?.text = sub.name
+//        return cell
+//    }
+    
+    // Manage size of the Cells
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 120)
+    }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("A row \(indexPath) has been selected")
+//        let sub = subs[indexPath.row]
+//        let singleSubController = SingleSubController()
+//        singleSubController.sub = sub
+//        self.navigationController?.pushViewController(singleSubController, animated: true)
+//    }
+    
+    // Manage View launched when clicking on a CollectionCell
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("A row \(indexPath) has been selected")
         let sub = subs[indexPath.row]
         let singleSubController = SingleSubController()
         singleSubController.sub = sub
         self.navigationController?.pushViewController(singleSubController, animated: true)
+    }
+    
+    // Manage Spacing between cell
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 
 }

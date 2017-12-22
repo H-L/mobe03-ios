@@ -16,4 +16,6 @@ class Subscription: NSObject {
     var subDescription: String?
     var contractNumber: String?
     var uid: String?
+    var type: String?
+    var autoManual: String?
 }
