@@ -169,7 +169,6 @@ class AddSubscriptionController: UIViewController {
         return tf
     }()
     
-    
     @objc func setUpTextFields() {
         autoManualField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         autoManualField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -180,7 +179,6 @@ class AddSubscriptionController: UIViewController {
         nameField.topAnchor.constraint(equalTo: autoManualField.bottomAnchor).isActive = true
         nameField.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
         nameField.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
         
         dateField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         dateField.topAnchor.constraint(equalTo: nameField.bottomAnchor).isActive = true

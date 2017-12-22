@@ -22,7 +22,6 @@
 		D5BFC1231FEA78CE0071C9D2 /* AddSubscriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFC1221FEA78CE0071C9D2 /* AddSubscriptionController.swift */; };
 		D5BFC1261FEA95EE0071C9D2 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFC1251FEA95EE0071C9D2 /* Subscription.swift */; };
 		D5EACC3F1FEB35BA00E45C09 /* SingleSubController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EACC3E1FEB35BA00E45C09 /* SingleSubController.swift */; };
-		D5EDB01E1FEAE0A100B9F567 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDB01D1FEAE0A100B9F567 /* TabBarController.swift */; };
 		D5F6DF381FEBF0900075CCFE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F6DF371FEBF0900075CCFE /* Extensions.swift */; };
 		D5F6DF3D1FEC14670075CCFE /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5F6DF3C1FEC14660075CCFE /* Roboto-Black.ttf */; };
 		D5F6DF3F1FEC149E0075CCFE /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5F6DF3E1FEC149E0075CCFE /* Roboto-BlackItalic.ttf */; };
@@ -87,7 +86,6 @@
 		D5BFC1221FEA78CE0071C9D2 /* AddSubscriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscriptionController.swift; sourceTree = "<group>"; };
 		D5BFC1251FEA95EE0071C9D2 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		D5EACC3E1FEB35BA00E45C09 /* SingleSubController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSubController.swift; sourceTree = "<group>"; };
-		D5EDB01D1FEAE0A100B9F567 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D5F6DF371FEBF0900075CCFE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D5F6DF3C1FEC14660075CCFE /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		D5F6DF3E1FEC149E0075CCFE /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 			children = (
 				D57A2AA11FE91E0C008B1712 /* LoginController.swift */,
 				D57A2A741FE91B6E008B1712 /* HomeController.swift */,
-				D5EDB01D1FEAE0A100B9F567 /* TabBarController.swift */,
 				D5BFC1221FEA78CE0071C9D2 /* AddSubscriptionController.swift */,
 				D5EACC3E1FEB35BA00E45C09 /* SingleSubController.swift */,
 			);
@@ -610,7 +607,6 @@
 				D57A2AA21FE91E0C008B1712 /* LoginController.swift in Sources */,
 				D5EACC3F1FEB35BA00E45C09 /* SingleSubController.swift in Sources */,
 				D59F2ECF1FEBBD0A00C811D5 /* MenuBar.swift in Sources */,
-				D5EDB01E1FEAE0A100B9F567 /* TabBarController.swift in Sources */,
 				D5F6DF381FEBF0900075CCFE /* Extensions.swift in Sources */,
 				D57A2A731FE91B6E008B1712 /* AppDelegate.swift in Sources */,
 				D5BFC1261FEA95EE0071C9D2 /* Subscription.swift in Sources */,
